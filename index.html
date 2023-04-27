@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Titulo Dinámico con la Hora Actual</title>
 <script>
-var counter = 0;
-setInterval(function(){
-counter += 1;
-document.title = "" + counter + "";
-}, 0);
+function actualizarTitulo() {
+let fecha = new Date();
+let hora = fecha.getHours();
+let minutos = fecha.getMinutes();
+let segundos = fecha.getSeconds();
+let nuevoTitulo = hora + ":" + minutos + ":" + segundos;
+document.title = nuevoTitulo;
+setTimeout(actualizarTitulo, 1000); //Se actualiza cada segundo
+}
 </script>
 </head>
-<body>
-<p>Esta página ha estado abierta durante el tiempo del titulo:</p>
+<body onload="actualizarTitulo()">
+<h1>Título Dinámico con la Hora Actual</h1>
+<p>El título de esta página se actualizará cada segundo mostrando la hora, los minutos y los segundos actuales.</p>
 </body>
 </html>
