@@ -5,10 +5,13 @@
 <script>
 function actualizarTitulo() {
 let fecha = new Date();
+let anio = fecha.getFullYear();
+let mes = fecha.getMonth() + 1;
+let dia = fecha.getDate();
 let hora = fecha.getHours();
 let minutos = fecha.getMinutes();
 let segundos = fecha.getSeconds();
-let nuevoTitulo = fecha + " | " + hora + ":" + minutos + ":" + segundos;
+let nuevoTitulo = anio + "/" + mes + "/" + dia + " | " + hora + ":" + minutos + ":" + segundos;
 document.title = nuevoTitulo;
 setTimeout(actualizarTitulo, 1); //Se actualiza cada segundo
 }
@@ -16,6 +19,6 @@ setTimeout(actualizarTitulo, 1); //Se actualiza cada segundo
 </head>
 <body onload="actualizarTitulo()">
 <h1>Programed by Javi17mod</h1>
-<p>El título de esta página se actualizará c</p>
+<p>Actualizando</p>
 </body>
 </html>
