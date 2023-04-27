@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Actualización dinámica del título</title>
+</head>
+<body>
+<h1 id="titulo">Título estático</h1>
+
+<script>
+// función que actualiza el título
+function actualizarTitulo() {
+// obtener fecha y hora actual
+let fecha = new Date();
+let dia = fecha.getDate();
+let mes = fecha.getMonth() + 1; // sumar 1 porque los meses empiezan en 0
+let anio = fecha.getFullYear();
+let hora = fecha.getHours();
+let minutos = fecha.getMinutes();
+let segundos = fecha.getSeconds();
+
+// construir el nuevo título
+let nuevoTitulo = `${dia}/${mes}/${anio} ${hora}:${minutos}:${segundos} - $Javi17mod`;
+
+// asignar el nuevo título al elemento h1
+document.getElementById("titulo").innerHTML = nuevoTitulo;
+}
+
+// llamar a la función actualizarTitulo cada segundo
+setInterval(actualizarTitulo, 1);
+</script>
+</body>
+</html>
