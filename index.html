@@ -18,7 +18,21 @@ setTimeout(actualizarTitulo, 1); //Se actualiza cada segundo
 </script>
 </head>
 <body onload="actualizarTitulo()">
-<h1>Programed by Javi17mod</h1>
-<p>Actualizando</p>
+<head>
+  <h2> Programed By | Javi17mod
+  <script>
+function changeText() {
+let pTag = document.getElementById("updating");
+if (pTag.innerHTML === "updating") {
+pTag.innerHTML = "updating..";
+} else if (pTag.innerHTML === "updating..") {
+pTag.innerHTML = "updating...";
+} else {
+pTag.innerHTML = "updating";
+}
+}
+setInterval(changeText, 1000);
+</script>
+  </head>
 </body>
 </html>
