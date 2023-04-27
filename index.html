@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hora: <script>document.write(new Date().toLocaleTimeString());</script></title>
+<title></title>
+<script>
+var counter = 0;
+setInterval(function(){
+counter += 1;
+document.title = "Tiempo en la página: " + counter + " milisegundos";
+}, 1);
+</script>
 </head>
 <body>
-<h1>Hola, mundo!</h1>
-<p>Bienvenido a mi página web.</p>
+<p>Esta página ha estado abierta durante un tiempo:</p>
 </body>
 </html>
