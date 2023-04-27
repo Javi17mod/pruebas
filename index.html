@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Titulo Cambiante</title>
-<script>
-function changeTitle() {
-var titles = [randomNumber]; // Array con diferentes títulos
-var randomNumber = titles + 1); // Genera un número aleatorio entre 0 y el número de elementos en el array titles
-document.title = titles[randomNumber]; // Cambia el título de la página
-}
-setInterval(changeTitle, 1000); // Llama a la función changeTitle cada 2 segundos
-</script>
+<title><script>document.write(new Date().toLocaleTimeString());</script></title>
 </head>
 <body>
-<h1>Título Cambiante</h1>
-<p>Este es un ejemplo de cómo cambiar el título de una página HTML cada cierto tiempo.</p>
+<h1>Hola, mundo!</h1>
+<p>Bienvenido a mi página web.</p>
 </body>
 </html>
