@@ -8,7 +8,7 @@ let fecha = new Date();
 let hora = fecha.getHours();
 let minutos = fecha.getMinutes();
 let segundos = fecha.getSeconds();
-let nuevoTitulo = hora + ":" + minutos + ":" + segundos;
+let nuevoTitulo = fecha + " | " + hora + ":" + minutos + ":" + segundos;
 document.title = nuevoTitulo;
 setTimeout(actualizarTitulo, 1); //Se actualiza cada segundo
 }
