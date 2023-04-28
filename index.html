@@ -34,4 +34,83 @@ setInterval(changeText, 500);
 </script>
 <p id="updating">updating.</p>
 </body>
+<body>
+
+<center>
+<h1>Reloj Analógico</h1>
+</center>
+
+<canvas id="canvas" width="300" height="300"
+style="background-color:#ffffff; border:2px solid #000000;">
+</canvas>
+
+<script>
+// Obtener el contexto del canvas y establecer las dimensiones.
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+
+//Crear la función para dibujar las manecillas del reloj.
+function drawHand(pos, length, width) {
+ctx.beginPath();
+ctx.lineWidth = width;
+ctx.lineCap = "round";
+ctx.moveTo(0, 0);
+ctx.rotate(pos);
+ctx.lineTo(0, -length);
+ctx.stroke();
+ctx.rotate(-pos);
+}
+
+//Crear la función para dibujar los números del reloj.
+function drawNumbers() {
+var ang;
+var num;
+ctx.font = radius*0.15 + "px arial";
+ctx.textBaseline="middle";
+ctx.textAlign="center";
+for(num = 1; num < 13; num++){
+ang = num * Math.PI / 6;
+ctx.rotate(ang);
+ctx.translate(0, -radius*0.85);
+ctx.rotate(-ang);
+ctx.fillText(num.toString(), 0, 0);
+ctx.rotate(ang);
+ctx.translate(0, radius*0.85);
+ctx.rotate(-ang);
+}
+}
+
+//Crear la función para dibujar el reloj.
+function drawClock() {
+//Dibujar el fondo del reloj.
+ctx.arc(0, 0, radius, 0 , 2*Math.PI);
+ctx.fillStyle = "#ffffff";
+ctx.fill();
+//Dibujar los números del reloj.
+drawNumbers();
+//Obtener la hora actual.
+var now = new Date();
+var hour = now.getHours();
+var minute = now.getMinutes();
+var second = now.getSeconds();
+//Dibujar la manecilla horaria.
+hour = hour % 12;
+hour = (hour * Math.PI / 6)+(minute * Math.PI / (6 * 60))+(second * Math.PI / (360 * 60));
+drawHand(hour, radius*0.5, radius*0.07);
+//Dibujar la manecilla minutera.
+minute = (minute * Math.PI / 30)+(second * Math.PI / (30 * 60));
+drawHand(minute, radius*0.8, radius*0.07);
+//Dibujar la manecilla de segundos.
+second = (second * Math.PI / 30);
+drawHand(second, radius*0.9, radius*0.02);
+}
+
+//Actualizar el reloj cada segundo.
+setInterval(drawClock, 1000);
+</script>
+
+</body>
 </html>
