@@ -11,8 +11,7 @@ let dia = fecha.getDate();
 let hora = fecha.getHours();
 let minutos = fecha.getMinutes();
 let segundos = fecha.getSeconds();
-let centesimas = fecha.getHundredths();
-let nuevoTitulo = anio + "/" + mes + "/" + dia + " | " + hora + ":" + minutos + ":" + segundos + "." + centesimas;
+let nuevoTitulo = anio + "/" + mes + "/" + dia + " | " + hora + ":" + minutos + ":" + segundos;
 document.title = nuevoTitulo;
 setTimeout(actualizarTitulo, 1); //Se actualiza cada segundo
 }
